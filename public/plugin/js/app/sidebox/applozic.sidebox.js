@@ -3561,8 +3561,12 @@ window.onload = function() {
                                                     }
                                                 }
                                                 if (userDetail.userName && !params.startTime) {
-                                                    var name = mckMessageLayout.getTabDisplayName(params.tabId, params.isGroup, userDetail.userName);
-                                                    $mck_tab_title.html(name);
+																										if (params.topicId && params.userName) {
+																											var name = mckMessageLayout.getTabDisplayName(params.tabId, params.isGroup, params.userName);
+																										} else {
+																											var name = mckMessageLayout.getTabDisplayName(params.tabId, params.isGroup, userDetail.userName);
+																										}
+																										$mck_tab_title.html(name);
                                                     $mck_tab_title.attr('title', name);
                                                 }
                                             }
