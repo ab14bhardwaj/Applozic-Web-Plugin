@@ -467,14 +467,8 @@ function MckGroupService() {
   _this.addGroupFromMessage = function(message, update, callback) {
     var groupId = message.groupId;
     var group = mckGroupUtils.getGroup('' + groupId);
-    if (typeof group === 'undefined') {
-      group = mckGroupUtils.createGroup(groupId);
-      mckGroupService.loadGroups({
-        apzCallback: mckGroupLayout.loadGroups
-      });
-    }
     if (typeof callback === "function") {
-      callback(group, message, update);
+      callback(group, message, update, groupId);
     }
   };
   _this.isGroupDeleted = function(tabId, isGroup) {
